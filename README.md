@@ -1,0 +1,2 @@
+people-publisher-portlet
+========================
