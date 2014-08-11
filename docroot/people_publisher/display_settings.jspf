@@ -1,0 +1,59 @@
+<%--
+/**
+ * Copyright (c) 2014 Sebastien Le Marchand All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+--%>
+
+<aui:fieldset cssClass="general-display-settings">
+
+	<div class="display-template">
+
+		<%
+		DefaultDDMTemplatesManager.getInstance().checkDefaultDDMTemplates(company.getCompanyId(), User.class.getName());
+
+		TemplateHandler templateHandler = TemplateHandlerRegistryUtil.getTemplateHandler(User.class.getName());
+		%>
+
+		<liferay-ui:ddm-template-selector
+			classNameId="<%= PortalUtil.getClassNameId(templateHandler.getClassName()) %>"
+			displayStyle="<%= displayStyle %>"
+			displayStyleGroupId="<%= displayStyleGroupId %>"
+			displayStyles="<%= Arrays.asList(new String[] { DISPLAY_STYLE_DEFAULT }) %>"
+			label="display-template"
+			refreshURL="<%= configurationRenderURL.toString() %>"
+		/>
+	</div>
+
+	<aui:select helpMessage="number-of-items-to-display-help" label="number-of-items-to-display" name="preferences--delta--">
+
+		<%
+		int[] deltas = {1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100};
+
+		for (int currentDelta: deltas) {
+		%>
+
+			<aui:option label="<%= currentDelta %>" selected="<%= (delta == currentDelta) %>" />
+
+		<%
+		}
+		%>
+
+	</aui:select>
+
+	<aui:select name="preferences--paginationType--">
+		<aui:option label="none" selected='<%= paginationType.equals("none") %>' />
+		<aui:option label="simple" selected='<%= paginationType.equals("simple") %>' />
+		<aui:option label="regular" selected='<%= paginationType.equals("regular") %>' />
+	</aui:select>
+
+</aui:fieldset>

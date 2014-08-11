@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<root>
+	<template>
+		<template-key>people-publisher-elegant-circles-ftl</template-key>
+		<name>Elegant Circles</name>
+		<description>Elegant Circles</description>
+		<language>ftl</language>
+		<script-file>com/slemarchand/peoplepublisher/dependencies/portlet_display_template_elegant_circles.ftl</script-file>
+		<cacheable>false</cacheable>
+	</template>
+	<!--  
+	<template>
+		<template-key>people-publisher-portaits-matrix-ftl</template-key>
+		<name>Portaits Matrix</name>
+		<description>Portaits Matrix</description>
+		<language>ftl</language>
+		<script-file>com/slemarchand/peoplepublisher/dependencies/portlet_display_template_portraits_matrix.ftl</script-file>
+		<cacheable>false</cacheable>
+	</template>
+	-->
+</root>

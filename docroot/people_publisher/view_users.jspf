@@ -1,0 +1,35 @@
+<c:choose>
+	<c:when test="<%= portletDisplayDDMTemplateId > 0 %>">
+	
+		<%
+		
+		contextObjects.put("users", users);
+		if(users.size() > 0) {
+			contextObjects.put("user", users.get(0));
+		}
+		
+		%>
+	
+		<%= PortletDisplayTemplateUtil.renderDDMTemplate(pageContext, portletDisplayDDMTemplateId, users, contextObjects) %>
+	</c:when>
+	<c:otherwise>
+		<div class="basic-display-style">
+		<%
+		for (int curUserIndex = 0; curUserIndex < users.size(); curUserIndex++) {
+			User curUser = users.get(curUserIndex);
+
+			try {
+		%>
+
+				<%@ include file="/people_publisher/view_user.jspf" %>
+
+		<%
+			}
+			catch (Exception e) {
+				_log.error(e.getMessage());
+			}
+		}
+		%>
+		</div>
+	</c:otherwise>
+</c:choose>

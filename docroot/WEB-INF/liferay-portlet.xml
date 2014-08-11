@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE liferay-portlet-app PUBLIC "-//Liferay//DTD Portlet Application 6.2.0//EN" "http://www.liferay.com/dtd/liferay-portlet-app_6_2_0.dtd">
+
+<liferay-portlet-app>
+
+	<portlet>
+		<portlet-name>1</portlet-name>
+		<icon>/people_publisher/icon.png</icon>
+		<configuration-action-class>com.slemarchand.peoplepublisher.action.ConfigurationActionImpl</configuration-action-class>
+		<portlet-data-handler-class>com.slemarchand.peoplepublisher.lar.PeoplePublisherPortletDataHandler</portlet-data-handler-class>
+		<template-handler>com.slemarchand.peoplepublisher.template.PeoplePublisherPortletDisplayTemplateHandler</template-handler>
+		<preferences-owned-by-group>true</preferences-owned-by-group>
+		<layout-cacheable>true</layout-cacheable>
+		<instanceable>true</instanceable>
+		<scopeable>false</scopeable>
+		<private-request-attributes>false</private-request-attributes>
+		<private-session-attributes>false</private-session-attributes>
+		<render-weight>50</render-weight>
+		<header-portlet-css>/people_publisher/css/main.css</header-portlet-css>
+		<css-class-wrapper>portlet-people-publisher</css-class-wrapper>
+		<add-default-resource>true</add-default-resource>
+	</portlet>
+
+	<role-mapper>
+		<role-name>administrator</role-name>
+		<role-link>Administrator</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>guest</role-name>
+		<role-link>Guest</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>power-user</role-name>
+		<role-link>Power User</role-link>
+	</role-mapper>
+	<role-mapper>
+		<role-name>user</role-name>
+		<role-link>User</role-link>
+	</role-mapper>
+</liferay-portlet-app>
